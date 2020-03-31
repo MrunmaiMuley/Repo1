@@ -1,0 +1,68 @@
+*** Settings ***
+Library    SeleniumLibrary    
+
+Suite Setup   Log    I am inside Test Suit Setup    
+Suite Teardown    Log    I am inside Test Suit Teardown     
+Test Setup    Log    I am inside Test Test Setup     
+Test Teardown    Log    I am inside Test Teardown 
+
+Default Tags    sanity
+
+
+*** Test Cases ***
+
+MyFirstTest
+    [Tags]    smoke
+    Log     Hello world...   
+    
+MySecondtTest
+   
+    Log     I am inside 2nd test
+    Set Tags    regression1
+    Remove Tags    regression1
+MyThirdTest
+    Log     I am inside 3rd test
+    
+# FirstSeleniumTest
+
+    # Open Browser    https://google.com    chrome
+    # Set Browser Implicit Wait    7
+    # Input Text    name=q    automation robot 
+    # Press Keys    name=q     ESC
+    # Click Button    name=btnK    
+    # Sleep    5       
+    # Close Browser
+    # Log    Test Done  
+    
+
+# SampleLoginTest
+    # [Documentation]    This is a sample login test
+    # Open Browser    ${URL}     chrome
+    # Set Browser Implicit Wait    5
+    # LoginKW
+   # # Input Text    id=login_email  @{CREDENTIALS}[0]
+    # # Input Password    id=login_password    &{LOGINDATA}[Password]
+    # # Click Button    id=login_submit
+    # Sleep    7  
+    # Click Element    id=user-text
+    # Sleep    5    
+    # Click Button    class=popover-list__button  
+    # Sleep    2  
+    # Close Browser    
+    # Log    Test done    
+    # Log    This Test was executed by %{username} on %{os}
+    
+*** Variables ***
+${URL}    https://access.trivago.com/oauth/de-DE/login?step=login
+@{CREDENTIALS}    muley.mrunmai@gmail.com
+&{LOGINDATA}    Password=trivago@77
+
+
+
+*** Keywords ***
+LoginKW
+     Input Text    id=login_email  @{CREDENTIALS}[0]
+    Input Password    id=login_password    &{LOGINDATA}[Password]
+    Click Button    id=login_submit 
+    
+
