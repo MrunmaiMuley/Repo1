@@ -36,7 +36,7 @@ MyThirdTest
     
 
 # SampleLoginTest
-    # [Documentation]    This is a sample login test
+    # [Documentation]    This is a sample login test1234567890
     # Open Browser    ${URL}     chrome
     # Set Browser Implicit Wait    5
     # LoginKW
